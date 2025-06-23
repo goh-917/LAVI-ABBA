@@ -1,12 +1,12 @@
-Averaged LAVI values and PINK noise across epochs
+%Averaged LAVI values and PINK noise across epochs
 
-Add the LAVI toolbox to your Matlab path
+%Add the LAVI toolbox to your Matlab path
 % Construct LAVI path
 LAVIpath = '/Users/claudiagoh/Desktop/MATLAB/LAVI-main'; % Location of the LAVI toolbox
 addpath(LAVIpath); % Add the toolbox to the MATLAB path
 
-Load raw data
-Data should contain a matrix with N_chan x N_timepoints preprocessed data, and the sampling frequency in Hz.
+%Load raw data
+%Data should contain a matrix with N_chan x N_timepoints preprocessed data, and the sampling frequency in Hz.
 % Construct the .mat path
 dataFileName = fullfile(LAVIpath, 'LAVI_results',  'HPC', '4 min epoch', 'r14:qw40:lavi:pink.mat'); % Path to saved data
 
@@ -23,10 +23,10 @@ disp(loaded_file.LAVI_matrix);
 disp(size(loaded_file.LAVI_matrix))
 LAVI_matrix = loaded_file.LAVI_matrix
 
-Average LAVI values across epochs 
-There are total of 8 channels, each channel produces x number epochs (differ between brain states), each epoch contain 96 LAVI values. 
-Now, we want to calculate the average of those LAVI values across epochs.
-Hence at the end, this section should produce 96 LAVI value per channel.
+%Average LAVI values across epochs 
+%There are total of 8 channels, each channel produces x number epochs (differ between brain states), each epoch contain 96 LAVI values. 
+%Now, we want to calculate the average of those LAVI values across epochs.
+%Hence at the end, this section should produce 96 LAVI value per channel.
 % Initialize variables
 num_channels = size(LAVI_matrix, 1); % Number of channels, default=8
 LAVI_values = size(LAVI_matrix, 2);  % Number of LAVI values per epoch, default=96 (same as foi)
@@ -51,7 +51,7 @@ end
 % Display the average LAVI values
 disp(avg_LAVI_values);
 
-Averaging PINK values
+%Averaging PINK values
 % Initialize variables
 num_pink_noise = size(PINK_matrix, 1);  % Number of PINK values per epoch, default=100 (same as foi)
 num_freq = size(PINK_matrix, 2);  % Number of LAVI values per epoch, default=96 (same as foi)
